@@ -35,12 +35,12 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build -t migueldecode/graphql:0.0.2 .
+          docker build -t migueldecode/graphql:$NEW_VERSION .
           docker build -t migueldecode/graphql:latest .
 
       - name: Push the Docker image
         run: |
-          docker push migueldecode/graphql:0.0.2
+          docker push migueldecode/graphql:$NEW_VERSION
           docker push migueldecode/graphql:latest
 
 #    - name: Build the Docker image

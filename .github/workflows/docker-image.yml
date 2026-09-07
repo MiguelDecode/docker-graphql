@@ -24,12 +24,16 @@ jobs:
           echo "Iniciando login"
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           echo "Fin del login"
-          
+
       - name: Build the Docker image
-        run: docker build -t migueldecode/graphql:0.0.2 .
+        run: |
+          docker build -t migueldecode/graphql:0.0.2 .
+          docker build -t migueldecode/graphql:latest .
 
       - name: Push the Docker image
-        run: docker push migueldecode/graphql:0.0.2
+        run: |
+          docker push migueldecode/graphql:0.0.2
+          docker push migueldecode/graphql:latest
 
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
